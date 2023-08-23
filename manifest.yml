@@ -1,0 +1,9 @@
+---
+applications:
+- name: northwind_odata_browser
+  command: python northwind_odata_browser.py
+  random-route: True
+  path: ./
+  memory: 128M
+  disk_quota: 512M
+  buildpack: python_buildpack

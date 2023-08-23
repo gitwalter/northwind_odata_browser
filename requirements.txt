@@ -1,0 +1,4 @@
+datetime
+flask==2.3.3
+pyodata
+requests

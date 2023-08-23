@@ -1,0 +1,1 @@
+web: python northwind_odata_browser.py

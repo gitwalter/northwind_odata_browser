@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Northwind OData Service</title>
+</head>
+<body>
+    <h1>Select an Entity</h1>
+    <form method="POST">
+        <select name="entity_name">
+            {% for entity in entities %}
+                <option value="{{ entity }}">{{ entity }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Fetch Data">
+    </form>
+
+    {% if data %}
+        <h1>Data for {{ entity_name }}</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    {% for property in properties %}
+                        <th>{{ property }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        {% for property in properties %}
+                            <td>{{ item[property] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
