@@ -4,12 +4,8 @@ import requests
 
 app = Flask(__name__)
 
-# Replace with your Northwind OData service URL
 service_url = 'https://services.odata.org/V2/Northwind/Northwind.svc/'
-
-# Create a PyOData service instance
 service = pyodata.Client(service_url, requests.Session())
-
 
 entity_sets = service.schema.entity_sets        
 entities = [entity_set.name for entity_set in entity_sets]        
@@ -29,4 +25,4 @@ def index():
         return render_template('index.html', entities=entities)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
