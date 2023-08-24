@@ -28,7 +28,11 @@
                 {% for item in data %}
                     <tr>
                         {% for property in properties %}
-                            <td>{{ item[property] }}</td>
+                            {% if property == 'Picture' or property == 'Photo' %}                            
+                                <td><img src="{{ item[property]|decode_and_embed_image }}" height="50px" width="50px"></td>
+                            {% else %}
+                                <td>{{ item[property] }}</td>
+                            {% endif %}
                         {% endfor %}
                     </tr>
                 {% endfor %}
